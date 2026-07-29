@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.FractionalPartialDifferentialEquationsCanonicalLaneLean.CaputoFractionalDerivative
+import HautevilleHouse.FractionalPartialDifferentialEquationsCanonicalLaneLean.FractionalSobolevSpaces
+import HautevilleHouse.FractionalPartialDifferentialEquationsCanonicalLaneLean.FractionalLaplacian
+import HautevilleHouse.FractionalPartialDifferentialEquationsCanonicalLaneLean.FractionalDiffusionEquation
+import HautevilleHouse.FractionalPartialDifferentialEquationsCanonicalLaneLean.FractionalReactionDiffusion
+
+namespace HautevilleHouse
+namespace FractionalPartialDifferentialEquationsCanonicalLaneLean
+
+def ConstrainedFractionalPDEsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_fractional_pdes_endgame (A : AdmissibleClass) :
+    ConstrainedFractionalPDEsClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end FractionalPartialDifferentialEquationsCanonicalLaneLean
+end HautevilleHouse
